@@ -9,12 +9,12 @@ import './singleComicPage.scss';
 
 const SingleComicPage = () => {
     const {comicId} = useParams();
-    const [comic, setComic] = useState();
+    const [comic, setComic] = useState(null);
     const {loading, error, getComic, clearError} = useMarvelService();
 
     useEffect(() => {
         updateComic()
-    }, [comicId]);
+    }, [comicId])
 
 
     const updateComic = () => {
@@ -25,13 +25,13 @@ const SingleComicPage = () => {
     }
 
 
-    const onComicLoaded = (char) => {
+    const onComicLoaded = (comic) => {
        setComic(comic);
     }
 
     const errorMessage = error ? <ErrorMessage/> : null;
     const spinner = loading ? <Spinner/> : null;
-    const content = !(loading || error || !comic) ? <View char={comic}/> : null;
+    const content = !(loading || error || !comic) ? <View comic={comic}/> : null;
 
     return (
         <>
