@@ -1,7 +1,7 @@
-import { Component } from "react/cjs/react.production.min";
 import ErrorMessage from "../errorMessage/ErrorMessage";
+import React from "react";
 
-class ErrorBoundary extends Component {
+class ErrorBoundary extends React.Component {
     state = {
         error: false
     }
